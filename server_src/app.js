@@ -19,8 +19,18 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', indexRouter);
+// React 리소스 연동
+
+app.use(express.static(path.join(__dirname, "client/build")));
+app.use("/", function (req, res, next) {
+  // express 내에서 react 리소스 표출하도록
+  res.sendFile(path.join(__dirname + "/client/build", "index.html"));
+});
+// app.use('/', indexRouter);
+
 app.use('/users', usersRouter);
+
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
