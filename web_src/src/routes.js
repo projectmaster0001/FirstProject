@@ -22,6 +22,7 @@ import Register from "views/examples/Register.js";
 import Login from "views/examples/Login.js";
 import Tables from "views/examples/Tables.js";
 import Icons from "views/examples/Icons.js";
+import KangMinGu from "views/examples/KangMinGu";
 
 var routes = [
 
@@ -55,6 +56,13 @@ var routes = [
     component: Profile,
     layout: "/home",
   },
+  {
+    path: '/min-gu',
+    name: 'Kang Min Gu',
+    icon: 'test',
+    component: KangMinGu,
+    layout: '/home',
+  }
 
   // {
   //   path: "/login",
